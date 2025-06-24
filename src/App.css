@@ -1,0 +1,11 @@
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: normal;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: green;
+  font-weight: bold;
+}
