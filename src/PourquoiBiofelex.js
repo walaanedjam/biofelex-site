@@ -1,18 +1,40 @@
 import React from 'react';
-import './PourquoiBiofelex.css'; // On utilisera un fichier CSS pour les animations
+import './PourquoiBiofelex.css';
+
+import iconBiosource from './icon-biosource.png.jpg';
+import iconBiodegradable from './icon-biodegradable.png.jpg';
+import iconCompostable from './icon-compostable.png';
 
 function PourquoiBiofelex() {
+    const cards = [
+        {
+            title: "Biosourcé",
+            text: "Nos compounds sont fabriqués à partir de matières organiques renouvelables d’origine végétale.",
+            icon: iconBiosource
+        },
+        {
+            title: "Biodégradable",
+            text: "Lorsque nos produits deviennent des déchets, ils se décomposent naturellement et rapidement.",
+            icon: iconBiodegradable
+        },
+        {
+            title: "Compostable",
+            text: "Nos bioplastiques se transforment en déchets organiques compostables facilement.",
+            icon: iconCompostable
+        }
+    ];
+
     return (
         <section id="pourquoi" className="pourquoi-section">
-            <h2 className="pourquoi-title">Pourquoi Biofelex ?</h2>
+            <h2 className="pourquoi-title">Pourquoi Bioflex ?</h2>
             <p className="pourquoi-subtitle">
-                Biofelex encourage un nouveau modèle de bioéconomie basé sur l’efficacité et
+                Bioflex encourage un nouveau modèle de bioéconomie basé sur l’efficacité et
                 l’utilisation durable des ressources renouvelables.
             </p>
 
             <div className="card-container">
                 {cards.map((card, index) => (
-                    <div key={index} className="card" onClick={() => alert(card.title)}>
+                    <div key={index} className="card">
                         <img src={card.icon} alt={card.title} className="card-icon" />
                         <h3 className="card-title">{card.title}</h3>
                         <p className="card-text">{card.text}</p>
@@ -22,23 +44,5 @@ function PourquoiBiofelex() {
         </section>
     );
 }
-
-const cards = [
-    {
-        title: "Biosourcé",
-        text: "Nos compounds sont fabriqués à partir de matières organiques renouvelables d’origine végétale.",
-        icon: "/icon-biosource.png"
-    },
-    {
-        title: "Biodégradable",
-        text: "Lorsque nos produits deviennent des déchets, ils se décomposent naturellement et rapidement.",
-        icon: "/icon-biodegradable.png"
-    },
-    {
-        title: "Compostable",
-        text: "Nos bioplastiques se transforment en déchets organiques compostables facilement.",
-        icon: "/icon-compostable.png"
-    }
-];
 
 export default PourquoiBiofelex;

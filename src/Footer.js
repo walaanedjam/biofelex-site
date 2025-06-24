@@ -24,8 +24,8 @@ function Footer() {
             {/* Footer sombre */}
             <div className="footer-bottom">
                 <div className="footer-logo">
-                    <h2>Biofelex</h2>
-                    <p>Biofelex est une startup engagée dans l’innovation durable à travers la conception de plastiques biodégradables issus de matières végétales.</p>
+                    <h2>bioflex</h2>
+                    <p>bioflex est une startup engagée dans l’innovation durable à travers la conception de plastiques biodégradables issus de matières végétales.</p>
                 </div>
 
                 <div className="footer-links">

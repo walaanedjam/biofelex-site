@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 function ContactPage() {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const pageStyle = {
         display: 'flex',
         flexWrap: 'wrap',
@@ -77,29 +86,31 @@ function ContactPage() {
     return (
         <div style={pageStyle}>
             {/* Bloc gauche - Infos de contact */}
-            <div style={leftStyle}>
-                <p style={introStyle}>Pour toute question ou collaboration, contactez-nous :</p>
+            {!isMobile && (
+                <div style={leftStyle}>
+                    <p style={introStyle}>Pour toute question ou collaboration, contactez-nous :</p>
 
-                <div style={contactItem}>
-                    <strong>📍 Siège social :</strong><br />
-                    Alger, Algérie
-                </div>
+                    <div style={contactItem}>
+                        <strong>📍 Siège social :</strong><br />
+                        Alger, Algérie
+                    </div>
 
-                <div style={contactItem}>
-                    <strong>📧 Email :</strong><br />
-                    <a href="mailto:contact.bioflex97@gmail.com" style={linkStyle}>contact.bioflex97@gmail.com</a>
-                </div>
+                    <div style={contactItem}>
+                        <strong>📧 Email :</strong><br />
+                        <a href="mailto:contact.bioflex97@gmail.com" style={linkStyle}>contact.bioflex97@gmail.com</a>
+                    </div>
 
-                <div style={contactItem}>
-                    <strong>📞 Téléphone :</strong><br />
-                    <a href="tel:+2130675433490" style={linkStyle}>+213 0675433490</a>
-                </div>
+                    <div style={contactItem}>
+                        <strong>📞 Téléphone :</strong><br />
+                        <a href="tel:+2130675433490" style={linkStyle}>+213 0675433490</a>
+                    </div>
 
-                <div style={{ ...contactItem, display: 'flex', gap: '15px' }}>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={linkStyle}>🔗 LinkedIn</a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={linkStyle}>🐦 Twitter</a>
+                    <div style={{ ...contactItem, display: 'flex', gap: '15px' }}>
+                        <a href="https://www.linkedin.com/company/eurl-bioflex/" target="_blank" rel="noopener noreferrer" style={linkStyle}>🔗 LinkedIn</a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={linkStyle}>🐦 Twitter</a>
+                    </div>
                 </div>
-            </div>
+            )}
 
             {/* Bloc droit - Formulaire */}
             <div style={rightStyle}>
